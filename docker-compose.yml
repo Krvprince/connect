@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  landingapp:
+    build: .
+    command: bash -c "python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    container_name: landingapp
+    volumes:
+      - .:/landingapp
+    ports:
+      - "9000:8000"
+    restart: always
